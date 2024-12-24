@@ -1,0 +1,69 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/api/auth/register",
+      "UpstreamPathTemplate": "/api/auth/register", 
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7203
+        }
+      ],
+      "UpstreamHttpMethod": [ "POST" ]
+    }
+    ,
+    {
+      "DownstreamPathTemplate": "/api/auth/login",
+      "UpstreamPathTemplate": "/api/gateway/auth/login",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPort": "localhost:7130", 
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/cart",
+      "UpstreamPathTemplate": "/api/gateway/cart",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPort": "localhost:7130", 
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/cart/update",
+      "UpstreamPathTemplate": "/api/gateway/cart/update",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPort": "localhost:7130", 
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/cart/remove",
+      "UpstreamPathTemplate": "/api/gateway/cart/remove",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPort": "localhost:7130", 
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/checkout",
+      "UpstreamPathTemplate": "/api/gateway/checkout",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPort": "localhost:7130",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/product/{id}",
+      "UpstreamPathTemplate": "/api/gateway/product/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPort": "localhost:7130", 
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/products/category/{categoryId}",
+      "UpstreamPathTemplate": "/api/gateway/products/category/{categoryId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPort": "localhost:7130",
+      "UpstreamHttpMethod": [ "Get" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5000"
+  }
+}
